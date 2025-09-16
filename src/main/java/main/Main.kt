@@ -1,11 +1,12 @@
 package main
 
-import java.util.*
+import main.infrastructure.StandardInputExchangeRateProvider
+import main.infrastructure.StandardOutputExchangeRateRenderer
 
 fun main() {
-    val scanner = Scanner(System.`in`)
-    
-    println("환율을 입력해주세요.")
-    val exchangeRate = scanner.nextDouble()
-    println("1달러 환율: %.2f원".format(exchangeRate))
+    val provider = StandardInputExchangeRateProvider()
+    val renderer = StandardOutputExchangeRateRenderer()
+
+    renderer.setExchangeRateProvider(provider);
+    renderer.render();
 }
