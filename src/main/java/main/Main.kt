@@ -1,9 +1,10 @@
 package main
 
-import main.domain.ExchangeRateSupportFactory
+import main.domain.ExchangeRateRenderer
+import org.springframework.context.support.ClassPathXmlApplicationContext
 
 fun main() {
-    val factory = ExchangeRateSupportFactory()
-    val renderer = factory.exchangeRateRenderer
+    val context = ClassPathXmlApplicationContext("exchange-rate-context.xml")
+    val renderer = context.getBean("exchangeRateRenderer", ExchangeRateRenderer::class.java)
     renderer.render()
 }
