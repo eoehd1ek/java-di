@@ -1,12 +1,9 @@
 package main
 
-import main.infrastructure.StandardInputExchangeRateProvider
-import main.infrastructure.StandardOutputExchangeRateRenderer
+import main.domain.ExchangeRateSupportFactory
 
 fun main() {
-    val provider = StandardInputExchangeRateProvider()
-    val renderer = StandardOutputExchangeRateRenderer()
-
-    renderer.setExchangeRateProvider(provider);
-    renderer.render();
+    val factory = ExchangeRateSupportFactory()
+    val renderer = factory.exchangeRateRenderer
+    renderer.render()
 }
